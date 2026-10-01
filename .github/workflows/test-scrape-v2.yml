@@ -2,6 +2,11 @@ name: Test Scrape V2
 
 on:
   workflow_dispatch:
+    inputs:
+      dummy:
+        description: 'Dummy input'
+        required: false
+        type: string
 
 jobs:
   test-scrape:
