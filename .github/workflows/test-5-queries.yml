@@ -15,12 +15,11 @@ jobs:
     strategy:
       fail-fast: false
       max-parallel: 4
-    defaults:
-      run:
-        working-directory: ${{ github.workspace }}/mad-google-maps-scraper
     
     steps:
       - uses: actions/checkout@v4
+        with:
+          path: .
       
       - name: Setup Docker
         uses: docker/setup-buildx-action@v3
@@ -28,22 +27,18 @@ jobs:
       - name: Pull scraper image
         run: docker pull gosom/google-maps-scraper
       
-      - name: Prepare query file
-        run: |
-          QUERY_FILE="${{ github.event.inputs.query_file }}"
-          cp "queries/${QUERY_FILE}" "./${QUERY_FILE}"
-          ls -la "./${QUERY_FILE}"
-      
       - name: Run scraper on test queries
         run: |
           QUERY_FILE="${{ github.event.inputs.query_file }}"
           TIMESTAMP=$(date +%Y%m%d_%H%M%S)
           OUTPUT_FILE="test_results_${TIMESTAMP}.csv"
           
+          # queries folder is now at ${{ github.workspace }}/queries/
+          # Mount the workspace root
           docker run --rm \
-            -v "$(pwd):/data" \
+            -v "${{ github.workspace }}:/data" \
             gosom/google-maps-scraper \
-            -input "/data/${QUERY_FILE}" \
+            -input "/data/queries/${QUERY_FILE}" \
             -results "/data/${OUTPUT_FILE}" \
             -depth 3 \
             -c 1 \
