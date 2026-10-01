@@ -6,7 +6,6 @@ on:
       run_test:
         description: 'Run test'
         required: false
-        type: boolean
 
 jobs:
   test-scrape:
