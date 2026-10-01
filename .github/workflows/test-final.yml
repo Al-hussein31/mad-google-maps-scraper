@@ -29,23 +29,14 @@ jobs:
           TIMESTAMP=$(date +%Y%m%d_%H%M%S)
           OUTPUT_FILE="test_results_${TIMESTAMP}.csv"
           
-          # Generate test queries inline (EXACTLY like original workflow)
-          python3 << 'PYEOF'
-queries = [
-    "beauty salon Lagos",
-    "restaurant Lagos", 
-    "plumber Lagos",
-    "hospital Lagos",
-    "real estate agent Lagos"
-]
-
-# Write to current working directory
-with open("test_queries.txt", "w") as f:
-    for q in queries:
-        f.write(q + "\n")
-
-print(f"Generated {len(queries)} test queries")
-PYEOF
+          # Generate test queries inline using shell (like original workflow)
+          cat > test_queries.txt << 'EOF'
+beauty salon Lagos
+restaurant Lagos
+plumber Lagos
+hospital Lagos
+real estate agent Lagos
+EOF
           
           docker run --rm \
             -v "$(pwd):/data" \
