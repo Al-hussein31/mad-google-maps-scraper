@@ -38,7 +38,7 @@ jobs:
           OUTPUT_FILE="test_results_${TIMESTAMP}.csv"
           
           docker run --rm \
-            -v "${{ runner.workspace }}:/data" \
+            -v "$(pwd):/data" \
             gosom/google-maps-scraper \
             -input "/data/test_queries.txt" \
             -results "/data/${OUTPUT_FILE}" \
