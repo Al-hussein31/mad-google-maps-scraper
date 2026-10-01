@@ -26,13 +26,11 @@ jobs:
       
       - name: Create test queries
         run: |
-          cat > test_queries.txt << 'EOF'
-beauty salon Lagos
-restaurant Lagos
-plumber Lagos
-hospital Lagos
-real estate agent Lagos
-EOF
+          echo "beauty salon Lagos" > test_queries.txt
+          echo "restaurant Lagos" >> test_queries.txt
+          echo "plumber Lagos" >> test_queries.txt
+          echo "hospital Lagos" >> test_queries.txt
+          echo "real estate agent Lagos" >> test_queries.txt
       
       - name: Run scraper on test queries
         run: |
