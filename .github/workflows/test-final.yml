@@ -14,14 +14,9 @@ jobs:
     strategy:
       fail-fast: false
       max-parallel: 4
-    defaults:
-      run:
-        working-directory: ${{ github.workspace }}/mad-google-maps-scraper
     
     steps:
       - uses: actions/checkout@v4
-        with:
-          path: .
       
       - name: Setup Docker
         uses: docker/setup-buildx-action@v3
@@ -34,15 +29,17 @@ jobs:
           TIMESTAMP=$(date +%Y%m%d_%H%M%S)
           OUTPUT_FILE="test_results_${TIMESTAMP}.csv"
           
-          # Generate test queries inline
-          echo "beauty salon Lagos" > test_queries.txt
-          echo "restaurant Lagos" >> test_queries.txt
-          echo "plumber Lagos" >> test_queries.txt
-          echo "hospital Lagos" >> test_queries.txt
-          echo "real estate agent Lagos" >> test_queries.txt
+          # Generate test queries inline (EXACTLY like original workflow)
+          cat > test_queries.txt << 'EOF'
+beauty salon Lagos
+restaurant Lagos
+plumber Lagos
+hospital Lagos
+real estate agent Lagos
+EOF
           
           docker run --rm \
-            -v "${{ github.workspace }}/mad-google-maps-scraper:/data" \
+            -v "${{ runner.workspace }}:/data" \
             gosom/google-maps-scraper \
             -input "/data/test_queries.txt" \
             -results "/data/${OUTPUT_FILE}" \
