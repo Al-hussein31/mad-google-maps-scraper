@@ -1,0 +1,772 @@
+hospital Lagos
+hospital Abuja
+hospital Port Harcourt
+hospital Kano
+hospital Ibadan
+hospital Enugu
+hospital Benin City
+hospital Kaduna
+hospital Jos
+hospital Abeokuta
+hospital Warri
+hospital Calabar
+hospital Uyo
+hospital Akure
+hospital Ilorin
+hospital Sokoto
+hospital Maiduguri
+hospital Zaria
+hospital Onitsha
+hospital Owerri
+hospital Aba
+clinic Lagos
+clinic Abuja
+clinic Port Harcourt
+clinic Kano
+clinic Ibadan
+clinic Enugu
+clinic Benin City
+clinic Kaduna
+clinic Jos
+clinic Abeokuta
+clinic Warri
+clinic Calabar
+clinic Uyo
+clinic Akure
+clinic Ilorin
+clinic Sokoto
+clinic Maiduguri
+clinic Zaria
+clinic Onitsha
+clinic Owerri
+clinic Aba
+medical center Lagos
+medical center Abuja
+medical center Port Harcourt
+medical center Kano
+medical center Ibadan
+health center Lagos
+health center Abuja
+primary health center Lagos
+primary health center Abuja
+general hospital Lagos
+general hospital Abuja
+teaching hospital Lagos
+teaching hospital Abuja
+teaching hospital Ibadan
+teaching hospital Enugu
+teaching hospital Kano
+federal medical center Lagos
+federal medical center Abuja
+federal medical center Owerri
+federal medical center Umuahia
+federal medical center Yenagoa
+federal medical center Asaba
+federal medical center Keffi
+federal medical center Bida
+federal medical center Nguru
+federal medical center Azare
+federal medical center Gusau
+federal medical center Birnin Kudu
+federal medical center Ido-Ekiti
+federal medical center Jalingo
+specialist hospital Lagos
+specialist hospital Abuja
+maternity hospital Lagos
+maternity hospital Abuja
+children hospital Lagos
+children hospital Abuja
+pediatric hospital Lagos
+pediatric hospital Abuja
+orthopedic hospital Lagos
+orthopedic hospital Abuja
+national orthopedic hospital Lagos
+national orthopedic hospital Abuja
+eye hospital Lagos
+eye hospital Abuja
+dental hospital Lagos
+dental hospital Abuja
+psychiatric hospital Lagos
+psychiatric hospital Abuja
+rehabilitation hospital Lagos
+rehabilitation hospital Abuja
+fertility clinic Lagos
+fertility clinic Abuja
+IVF clinic Lagos
+IVF clinic Abuja
+IVF center Lagos
+IVF center Abuja
+assisted reproduction Lagos
+assisted reproduction Abuja
+gynecology clinic Lagos
+gynecology clinic Abuja
+obstetrics clinic Lagos
+obstetrics clinic Abuja
+antenatal clinic Lagos
+antenatal clinic Abuja
+prenatal clinic Lagos
+prenatal clinic Abuja
+postnatal clinic Lagos
+postnatal clinic Abuja
+maternity clinic Lagos
+maternity clinic Abuja
+women's hospital Lagos
+women's hospital Abuja
+women's clinic Lagos
+women's clinic Abuja
+family planning clinic Lagos
+family planning clinic Abuja
+contraceptive clinic Lagos
+contraceptive clinic Abuja
+cancer hospital Lagos
+cancer hospital Abuja
+oncology center Lagos
+oncology center Abuja
+chemotherapy Lagos
+chemotherapy Abuja
+radiotherapy Lagos
+radiotherapy Abuja
+cardiology hospital Lagos
+cardiology hospital Abuja
+heart hospital Lagos
+heart hospital Abuja
+cardiac center Lagos
+cardiac center Abuja
+nephrology center Lagos
+nephrology center Abuja
+kidney hospital Lagos
+kidney hospital Abuja
+dialysis center Lagos
+dialysis center Abuja
+dialysis unit Lagos
+dialysis unit Abuja
+hemodialysis Lagos
+hemodialysis Abuja
+peritoneal dialysis Lagos
+peritoneal dialysis Abuja
+transplant center Lagos
+transplant center Abuja
+kidney transplant Lagos
+kidney transplant Abuja
+liver transplant Lagos
+liver transplant Abuja
+neurology hospital Lagos
+neurology hospital Abuja
+brain hospital Lagos
+brain hospital Abuja
+neurosurgery Lagos
+neurosurgery Abuja
+stroke center Lagos
+stroke center Abuja
+emergency hospital Lagos
+emergency hospital Abuja
+trauma center Lagos
+trauma center Abuja
+accident and emergency Lagos
+accident and emergency Abuja
+24 hour hospital Lagos
+24 hour hospital Abuja
+24 hour clinic Lagos
+24 hour clinic Abuja
+urgent care Lagos
+urgent care Abuja
+walk-in clinic Lagos
+walk-in clinic Abuja
+pharmacy Lagos
+pharmacy Abuja
+pharmacy Port Harcourt
+pharmacy Kano
+pharmacy Ibadan
+pharmacy Enugu
+pharmacy Benin City
+pharmacy Kaduna
+pharmacy Jos
+pharmacy Abeokuta
+pharmacy Warri
+pharmacy Calabar
+pharmacy Uyo
+pharmacy Akure
+pharmacy Ilorin
+pharmacy Sokoto
+pharmacy Maiduguri
+pharmacy Zaria
+pharmacy Onitsha
+pharmacy Owerri
+pharmacy Aba
+drug store Lagos
+drug store Abuja
+chemist Lagos
+chemist Abuja
+patent medicine store Lagos
+patent medicine store Abuja
+community pharmacy Lagos
+community pharmacy Abuja
+hospital pharmacy Lagos
+hospital pharmacy Abuja
+retail pharmacy Lagos
+retail pharmacy Abuja
+online pharmacy Lagos
+online pharmacy Abuja
+pharmacy delivery Lagos
+pharmacy delivery Abuja
+prescription delivery Lagos
+prescription delivery Abuja
+medicine delivery Lagos
+medicine delivery Abuja
+laboratory Lagos
+laboratory Abuja
+laboratory Port Harcourt
+laboratory Kano
+laboratory Ibadan
+medical laboratory Lagos
+medical laboratory Abuja
+diagnostic center Lagos
+diagnostic center Abuja
+diagnostic center Port Harcourt
+diagnostic center Kano
+diagnostic center Ibadan
+pathology lab Lagos
+pathology lab Abuja
+histopathology Lagos
+histopathology Abuja
+cytology Lagos
+cytology Abuja
+hematology lab Lagos
+hematology lab Abuja
+clinical chemistry Lagos
+clinical chemistry Abuja
+microbiology lab Lagos
+microbiology lab Abuja
+serology lab Lagos
+serology lab Abuja
+immunology lab Lagos
+immunology lab Abuja
+blood bank Lagos
+blood bank Abuja
+blood transfusion Lagos
+blood transfusion Abuja
+blood donation Lagos
+blood donation Abuja
+blood group test Lagos
+blood group test Abuja
+genotype test Lagos
+genotype test Abuja
+DNA test Lagos
+DNA test Abuja
+paternity test Lagos
+paternity test Abuja
+COVID test Lagos
+COVID test Abuja
+PCR test Lagos
+PCR test Abuja
+rapid test Lagos
+rapid test Abuja
+antigen test Lagos
+antigen test Abuja
+antibody test Lagos
+antibody test Abuja
+HIV test Lagos
+HIV test Abuja
+hepatitis test Lagos
+hepatitis test Abuja
+malaria test Lagos
+malaria test Abuja
+typhoid test Lagos
+typhoid test Abuja
+pregnancy test Lagos
+pregnancy test Abuja
+fertility test Lagos
+fertility test Abuja
+hormone test Lagos
+hormone test Abuja
+thyroid test Lagos
+thyroid test Abuja
+diabetes test Lagos
+diabetes test Abuja
+cholesterol test Lagos
+cholesterol test Abuja
+lipid profile Lagos
+lipid profile Abuja
+liver function test Lagos
+liver function test Abuja
+kidney function test Lagos
+kidney function test Abuja
+full body checkup Lagos
+full body checkup Abuja
+executive checkup Lagos
+executive checkup Abuja
+wellness checkup Lagos
+wellness checkup Abuja
+pre-employment medical Lagos
+pre-employment medical Abuja
+visa medical Lagos
+visa medical Abuja
+immigration medical Lagos
+immigration medical Abuja
+occupational health Lagos
+occupational health Abuja
+industrial medical Lagos
+industrial medical Abuja
+radiology center Lagos
+radiology center Abuja
+radiology center Port Harcourt
+radiology center Kano
+radiology center Ibadan
+X-ray Lagos
+X-ray Abuja
+digital X-ray Lagos
+digital X-ray Abuja
+chest X-ray Lagos
+chest X-ray Abuja
+dental X-ray Lagos
+dental X-ray Abuja
+OPG Lagos
+OPG Abuja
+CT scan Lagos
+CT scan Abuja
+CT scan Port Harcourt
+CT scan Kano
+CT scan Ibadan
+MRI Lagos
+MRI Abuja
+MRI scan Lagos
+MRI scan Abuja
+brain MRI Lagos
+brain MRI Abuja
+spine MRI Lagos
+spine MRI Abuja
+joint MRI Lagos
+joint MRI Abuja
+ultrasound Lagos
+ultrasound Abuja
+ultrasound scan Lagos
+ultrasound scan Abuja
+abdominal ultrasound Lagos
+abdominal ultrasound Abuja
+pelvic ultrasound Lagos
+pelvic ultrasound Abuja
+obstetric ultrasound Lagos
+obstetric ultrasound Abuja
+pregnancy ultrasound Lagos
+pregnancy ultrasound Abuja
+4D ultrasound Lagos
+4D ultrasound Abuja
+3D ultrasound Lagos
+3D ultrasound Abuja
+doppler ultrasound Lagos
+doppler ultrasound Abuja
+echocardiography Lagos
+echocardiography Abuja
+echo Lagos
+echo Abuja
+ECG Lagos
+ECG Abuja
+electrocardiogram Lagos
+electrocardiogram Abuja
+stress test Lagos
+stress test Abuja
+treadmill test Lagos
+treadmill test Abuja
+holter monitor Lagos
+holter monitor Abuja
+EEG Lagos
+EEG Abuja
+electroencephalogram Lagos
+electroencephalogram Abuja
+mammography Lagos
+mammography Abuja
+mammogram Lagos
+mammogram Abuja
+breast screening Lagos
+breast screening Abuja
+bone density Lagos
+bone density Abuja
+DEXA scan Lagos
+DEXA scan Abuja
+fluoroscopy Lagos
+fluoroscopy Abuja
+interventional radiology Lagos
+interventional radiology Abuja
+dentist Lagos
+dentist Abuja
+dentist Port Harcourt
+dentist Kano
+dentist Ibadan
+dental clinic Lagos
+dental clinic Abuja
+dental clinic Port Harcourt
+dental clinic Kano
+dental clinic Ibadan
+dental surgery Lagos
+dental surgery Abuja
+oral surgery Lagos
+oral surgery Abuja
+orthodontist Lagos
+orthodontist Abuja
+braces Lagos
+braces Abuja
+Invisalign Lagos
+Invisalign Abuja
+clear aligners Lagos
+clear aligners Abuja
+dental implants Lagos
+dental implants Abuja
+implant dentist Lagos
+implant dentist Abuja
+root canal Lagos
+root canal Abuja
+endodontist Lagos
+endodontist Abuja
+crown Lagos
+crown Abuja
+bridge Lagos
+bridge Abuja
+denture Lagos
+denture Abuja
+partial denture Lagos
+partial denture Abuja
+complete denture Lagos
+complete denture Abuja
+teeth whitening Lagos
+teeth whitening Abuja
+scaling and polishing Lagos
+scaling and polishing Abuja
+dental cleaning Lagos
+dental cleaning Abuja
+oral hygiene Lagos
+oral hygiene Abuja
+periodontist Lagos
+periodontist Abuja
+gum treatment Lagos
+gum treatment Abuja
+pediatric dentist Lagos
+pediatric dentist Abuja
+kids dentist Lagos
+kids dentist Abuja
+cosmetic dentist Lagos
+cosmetic dentist Abuja
+smile makeover Lagos
+smile makeover Abuja
+veneers Lagos
+veneers Abuja
+composite bonding Lagos
+composite bonding Abuja
+physiotherapy Lagos
+physiotherapy Abuja
+physiotherapy Port Harcourt
+physiotherapy Kano
+physiotherapy Ibadan
+physiotherapist Lagos
+physiotherapist Abuja
+physical therapy Lagos
+physical therapy Abuja
+rehabilitation Lagos
+rehabilitation Abuja
+sports physiotherapy Lagos
+sports physiotherapy Abuja
+orthopedic physiotherapy Lagos
+orthopedic physiotherapy Abuja
+neuro physiotherapy Lagos
+neuro physiotherapy Abuja
+pediatric physiotherapy Lagos
+pediatric physiotherapy Abuja
+geriatric physiotherapy Lagos
+geriatric physiotherapy Abuja
+post-surgery physiotherapy Lagos
+post-surgery physiotherapy Abuja
+post-stroke physiotherapy Lagos
+post-stroke physiotherapy Abuja
+back pain treatment Lagos
+back pain treatment Abuja
+neck pain treatment Lagos
+neck pain treatment Abuja
+joint pain treatment Lagos
+joint pain treatment Abuja
+arthritis treatment Lagos
+arthritis treatment Abuja
+electrotherapy Lagos
+electrotherapy Abuja
+ultrasound therapy Lagos
+ultrasound therapy Abuja
+shockwave therapy Lagos
+shockwave therapy Abuja
+laser therapy Lagos
+laser therapy Abuja
+dry needling Lagos
+dry needling Abuja
+acupuncture Lagos
+acupuncture Abuja
+cupping therapy Lagos
+cupping therapy Abuja
+hijama Lagos
+hijama Abuja
+wet cupping Lagos
+wet cupping Abuja
+massage therapy Lagos
+massage therapy Abuja
+therapeutic massage Lagos
+therapeutic massage Abuja
+deep tissue massage Lagos
+deep tissue massage Abuja
+sports massage Lagos
+sports massage Abuja
+lymphatic drainage Lagos
+lymphatic drainage Abuja
+occupational therapy Lagos
+occupational therapy Abuja
+speech therapy Lagos
+speech therapy Abuja
+speech therapist Lagos
+speech therapist Abuja
+language therapy Lagos
+language therapy Abuja
+swallowing therapy Lagos
+swallowing therapy Abuja
+voice therapy Lagos
+voice therapy Abuja
+ABA therapy Lagos
+ABA therapy Abuja
+autism therapy Lagos
+autism therapy Abuja
+special needs therapy Lagos
+special needs therapy Abuja
+optometrist Lagos
+optometrist Abuja
+optometrist Port Harcourt
+optometrist Kano
+optometrist Ibadan
+optical clinic Lagos
+optical clinic Abuja
+eye clinic Lagos
+eye clinic Abuja
+eye specialist Lagos
+eye specialist Abuja
+ophthalmologist Lagos
+ophthalmologist Abuja
+eye surgeon Lagos
+eye surgeon Abuja
+cataract surgery Lagos
+cataract surgery Abuja
+glaucoma treatment Lagos
+glaucoma treatment Abuja
+LASIK Lagos
+LASIK Abuja
+laser eye surgery Lagos
+laser eye surgery Abuja
+refractive surgery Lagos
+refractive surgery Abuja
+corneal transplant Lagos
+corneal transplant Abuja
+retina specialist Lagos
+retina specialist Abuja
+pediatric ophthalmology Lagos
+pediatric ophthalmology Abuja
+optical shop Lagos
+optical shop Abuja
+eyewear Lagos
+eyewear Abuja
+eyeglasses Lagos
+eyeglasses Abuja
+contact lenses Lagos
+contact lenses Abuja
+sunglasses Lagos
+sunglasses Abuja
+vision test Lagos
+vision test Abuja
+eye exam Lagos
+eye exam Abuja
+mental health Lagos
+mental health Abuja
+psychiatrist Lagos
+psychiatrist Abuja
+psychologist Lagos
+psychologist Abuja
+therapist Lagos
+therapist Abuja
+counseling Lagos
+counseling Abuja
+counselling Lagos
+counselling Abuja
+psychotherapy Lagos
+psychotherapy Abuja
+CBT Lagos
+CBT Abuja
+cognitive behavioral therapy Lagos
+cognitive behavioral therapy Abuja
+depression treatment Lagos
+depression treatment Abuja
+anxiety treatment Lagos
+anxiety treatment Abuja
+bipolar treatment Lagos
+bipolar treatment Abuja
+schizophrenia treatment Lagos
+schizophrenia treatment Abuja
+addiction treatment Lagos
+addiction treatment Abuja
+rehab center Lagos
+rehab center Abuja
+drug rehab Lagos
+drug rehab Abuja
+alcohol rehab Lagos
+alcohol rehab Abuja
+detox center Lagos
+detox center Abuja
+wellness center Lagos
+wellness center Abuja
+spa medical Lagos
+spa medical Abuja
+medical spa Lagos
+medical spa Abuja
+anti-aging clinic Lagos
+anti-aging clinic Abuja
+aesthetic clinic Lagos
+aesthetic clinic Abuja
+cosmetic clinic Lagos
+cosmetic clinic Abuja
+dermatology clinic Lagos
+dermatology clinic Abuja
+skin clinic Lagos
+skin clinic Abuja
+skin specialist Lagos
+skin specialist Abuja
+dermatologist Lagos
+dermatologist Abuja
+skin treatment Lagos
+skin treatment Abuja
+acne treatment Lagos
+acne treatment Abuja
+eczema treatment Lagos
+eczema treatment Abuja
+psoriasis treatment Lagos
+psoriasis treatment Abuja
+vitiligo treatment Lagos
+vitiligo treatment Abuja
+melasma treatment Lagos
+melasma treatment Abuja
+pigmentation treatment Lagos
+pigmentation treatment Abuja
+scar treatment Lagos
+scar treatment Abuja
+keloid treatment Lagos
+keloid treatment Abuja
+mole removal Lagos
+mole removal Abuja
+wart removal Lagos
+wart removal Abuja
+skin tag removal Lagos
+skin tag removal Abuja
+laser treatment Lagos
+laser treatment Abuja
+chemical peel Lagos
+chemical peel Abuja
+microdermabrasion Lagos
+microdermabrasion Abuja
+hydrafacial Lagos
+hydrafacial Abuja
+Botox Lagos
+Botox Abuja
+fillers Lagos
+fillers Abuja
+dermal fillers Lagos
+dermal fillers Abuja
+lip filler Lagos
+lip filler Abuja
+cheek filler Lagos
+cheek filler Abuja
+anti-wrinkle injection Lagos
+anti-wrinkle injection Abuja
+PRP therapy Lagos
+PRP therapy Abuja
+mesotherapy Lagos
+mesotherapy Abuja
+stem cell therapy Lagos
+stem cell therapy Abuja
+exosome therapy Lagos
+exosome therapy Abuja
+home care Lagos
+home care Abuja
+home nursing Lagos
+home nursing Abuja
+palliative care Lagos
+palliative care Abuja
+hospice care Lagos
+hospice care Abuja
+elderly care Lagos
+elderly care Abuja
+geriatric care Lagos
+geriatric care Abuja
+dementia care Lagos
+dementia care Abuja
+Alzheimer care Lagos
+Alzheimer care Abuja
+disability care Lagos
+disability care Abuja
+special needs care Lagos
+special needs care Abuja
+ambulance service Lagos
+ambulance service Abuja
+ambulance service Port Harcourt
+ambulance service Kano
+ambulance service Ibadan
+emergency ambulance Lagos
+emergency ambulance Abuja
+private ambulance Lagos
+private ambulance Abuja
+air ambulance Lagos
+air ambulance Abuja
+patient transport Lagos
+patient transport Abuja
+medical evacuation Lagos
+medical evacuation Abuja
+blood bank Lagos
+blood bank Abuja
+blood donation center Lagos
+blood donation center Abuja
+cord blood bank Lagos
+cord blood bank Abuja
+stem cell bank Lagos
+stem cell bank Abuja
+health insurance Lagos
+health insurance Abuja
+HMO Lagos
+HMO Abuja
+NHIS Lagos
+NHIS Abuja
+health maintenance organization Lagos
+health maintenance organization Abuja
+corporate health Lagos
+corporate health Abuja
+employee wellness Lagos
+employee wellness Abuja
+occupational health clinic Lagos
+occupational health clinic Abuja
+travel clinic Lagos
+travel clinic Abuja
+vaccination center Lagos
+vaccination center Abuja
+immunization clinic Lagos
+immunization clinic Abuja
+childhood immunization Lagos
+childhood immunization Abuja
+travel vaccination Lagos
+travel vaccination Abuja
+yellow fever vaccination Lagos
+yellow fever vaccination Abuja
+COVID vaccination Lagos
+COVID vaccination Abuja
+flu vaccination Lagos
+flu vaccination Abuja
+HPV vaccination Lagos
+HPV vaccination Abuja
+hepatitis B vaccination Lagos
+hepatitis B vaccination Abuja
+meningitis vaccination Lagos
+meningitis vaccination Abuja
+typhoid vaccination Lagos
+typhoid vaccination Abuja
+cholera vaccination Lagos
+cholera vaccination Abuja
+rabies vaccination Lagos
+rabies vaccination Abuja
+tetanus vaccination Lagos
+tetanus vaccination Abuja

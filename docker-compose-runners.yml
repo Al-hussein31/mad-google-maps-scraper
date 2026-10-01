@@ -1,0 +1,72 @@
+version: '3.8'
+
+services:
+  runner-1:
+    image: ghcr.io/actions/actions-runner:latest
+    container_name: oci-a1-docker-01
+    environment:
+      - REPO_URL=https://github.com/Al-hussein31/mad-google-maps-scraper
+      - RUNNER_NAME=oci-a1-docker-01
+      - RUNNER_LABELS=maps-scraper
+      - RUNNER_WORKDIR=/home/runner/_work
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - runner1-work:/home/runner/_work
+    restart: unless-stopped
+    networks:
+      - runner-network
+
+  runner-2:
+    image: ghcr.io/actions/actions-runner:latest
+    container_name: oci-a1-docker-02
+    environment:
+      - REPO_URL=https://github.com/Al-hussein31/mad-google-maps-scraper
+      - RUNNER_NAME=oci-a1-docker-02
+      - RUNNER_LABELS=maps-scraper
+      - RUNNER_WORKDIR=/home/runner/_work
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - runner2-work:/home/runner/_work
+    restart: unless-stopped
+    networks:
+      - runner-network
+
+  runner-3:
+    image: ghcr.io/actions/actions-runner:latest
+    container_name: oci-a1-docker-03
+    environment:
+      - REPO_URL=https://github.com/Al-hussein31/mad-google-maps-scraper
+      - RUNNER_NAME=oci-a1-docker-03
+      - RUNNER_LABELS=maps-scraper
+      - RUNNER_WORKDIR=/home/runner/_work
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - runner3-work:/home/runner/_work
+    restart: unless-stopped
+    networks:
+      - runner-network
+
+  runner-4:
+    image: ghcr.io/actions/actions-runner:latest
+    container_name: oci-a1-docker-04
+    environment:
+      - REPO_URL=https://github.com/Al-hussein31/mad-google-maps-scraper
+      - RUNNER_NAME=oci-a1-docker-04
+      - RUNNER_LABELS=maps-scraper
+      - RUNNER_WORKDIR=/home/runner/_work
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - runner4-work:/home/runner/_work
+    restart: unless-stopped
+    networks:
+      - runner-network
+
+volumes:
+  runner1-work:
+  runner2-work:
+  runner3-work:
+  runner4-work:
+
+networks:
+  runner-network:
+    driver: bridge
