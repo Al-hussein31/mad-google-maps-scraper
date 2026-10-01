@@ -1,0 +1,83 @@
+name: Scrape Production
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: 'Type YES to run full production scrape'
+        required: true
+
+jobs:
+  scrape:
+    if: github.event.inputs.confirm == 'YES'
+    runs-on: [self-hosted, maps-scraper]
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        sector:
+          - 01_beauty_personal_care
+          - 02_food_hospitality
+          - 03_fashion_retail
+          - 04_auto_services
+          - 05_home_services
+          - 06_health_medical
+          - 07_real_estate
+          - 08_professional_services
+          - 09_events
+          - 10_logistics
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Docker
+        uses: docker/setup-buildx-action@v3
+
+      - name: Pull scraper image
+        run: docker pull gosom/google-maps-scraper
+
+      - name: Run scraper on sector queries (docker cp, no bind mount, memory capped)
+        run: |
+          set -e
+          TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+          SECTOR="${{ matrix.sector }}"
+          OUTPUT_FILE="results_${SECTOR}_${TIMESTAMP}.csv"
+          QUERY_FILE="queries/${SECTOR}.txt"
+
+          # Runner itself lives in a container (DooD), so bind-mounting
+          # runner.workspace into a sibling container resolves on the HOST
+          # filesystem, not this container's. Use docker create + docker cp
+          # instead, which works regardless of host/container path mismatch.
+          # Memory capped: box also runs other live production services.
+          CID=$(docker create \
+            --memory="1500m" \
+            --memory-swap="2g" \
+            gosom/google-maps-scraper \
+            -input "/queries.txt" \
+            -results "/${OUTPUT_FILE}" \
+            -depth 3 \
+            -c 1 \
+            -exit-on-inactivity 10m \
+            -zoom 14)
+
+          docker cp "${QUERY_FILE}" "${CID}:/queries.txt"
+          docker start -a "$CID"
+          docker cp "${CID}:/${OUTPUT_FILE}" "./${OUTPUT_FILE}"
+          docker rm "$CID" > /dev/null
+
+          echo "OUTPUT_FILE=${OUTPUT_FILE}" >> "$GITHUB_ENV"
+
+      - name: Show results preview
+        run: |
+          echo "=== Results preview ==="
+          head -5 "$OUTPUT_FILE"
+          echo "=== Row count ==="
+          wc -l "$OUTPUT_FILE"
+
+      - name: Upload results artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: results-${{ matrix.sector }}
+          path: results_*.csv
+          retention-days: 30
