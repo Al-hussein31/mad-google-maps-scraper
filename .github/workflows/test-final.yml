@@ -24,30 +24,20 @@ jobs:
       - name: Pull scraper image
         run: docker pull gosom/google-maps-scraper
       
-      - name: Run scraper on test queries (single step like original)
+      - name: Create test queries
+        run: |
+          cat > test_queries.txt << 'EOF'
+beauty salon Lagos
+restaurant Lagos
+plumber Lagos
+hospital Lagos
+real estate agent Lagos
+EOF
+      
+      - name: Run scraper on test queries
         run: |
           TIMESTAMP=$(date +%Y%m%d_%H%M%S)
           OUTPUT_FILE="test_results_${TIMESTAMP}.csv"
-          
-          # Generate test queries inline (EXACTLY like original workflow)
-          python3 << 'PYEOF'
-import os
-
-queries = [
-    "beauty salon Lagos",
-    "restaurant Lagos", 
-    "plumber Lagos",
-    "hospital Lagos",
-    "real estate agent Lagos"
-]
-
-# Write to current working directory
-with open("test_queries.txt", "w") as f:
-    for q in queries:
-        f.write(q + "\n")
-
-print(f"Generated {len(queries)} test queries")
-PYEOF
           
           docker run --rm \
             -v "$(pwd):/data" \
