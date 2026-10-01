@@ -24,13 +24,14 @@ jobs:
       - name: Pull scraper image
         run: docker pull gosom/google-maps-scraper
       
-      - name: Create test queries
+      - name: Create test queries in /tmp (persistent location)
         run: |
-          echo "beauty salon Lagos" > test_queries.txt
-          echo "restaurant Lagos" >> test_queries.txt
-          echo "plumber Lagos" >> test_queries.txt
-          echo "hospital Lagos" >> test_queries.txt
-          echo "real estate agent Lagos" >> test_queries.txt
+          echo "beauty salon Lagos" > /tmp/test_queries.txt
+          echo "restaurant Lagos" >> /tmp/test_queries.txt
+          echo "plumber Lagos" >> /tmp/test_queries.txt
+          echo "hospital Lagos" >> /tmp/test_queries.txt
+          echo "real estate agent Lagos" >> /tmp/test_queries.txt
+          ls -la /tmp/test_queries.txt
       
       - name: Run scraper on test queries
         run: |
@@ -38,10 +39,11 @@ jobs:
           OUTPUT_FILE="test_results_${TIMESTAMP}.csv"
           
           docker run --rm \
-            -v "$(pwd):/data" \
+            -v "/tmp:/data" \
+            -v "$(pwd):/output" \
             gosom/google-maps-scraper \
             -input "/data/test_queries.txt" \
-            -results "/data/${OUTPUT_FILE}" \
+            -results "/output/${OUTPUT_FILE}" \
             -depth 3 \
             -c 1 \
             -exit-on-inactivity 10m \
