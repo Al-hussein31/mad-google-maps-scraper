@@ -25,12 +25,12 @@ jobs:
       - name: Pull scraper image
         run: docker pull gosom/google-maps-scraper
       
-      - name: Prepare query file
+      - name: Prepare query file in working directory
         run: |
           QUERY_FILE="${{ github.event.inputs.query_file }}"
-          # Copy query file to /tmp where docker can easily access it
-          cp "queries/${QUERY_FILE}" "/tmp/${QUERY_FILE}"
-          ls -la "/tmp/${QUERY_FILE}"
+          # Copy query file to working directory where docker can access it
+          cp "queries/${QUERY_FILE}" "./${QUERY_FILE}"
+          ls -la "./${QUERY_FILE}"
       
       - name: Run scraper on test queries
         run: |
@@ -38,13 +38,12 @@ jobs:
           TIMESTAMP=$(date +%Y%m%d_%H%M%S)
           OUTPUT_FILE="test_results_${TIMESTAMP}.csv"
           
-          # Use /tmp for query file, current dir for output
+          # Use working directory for both input and output
           docker run --rm \
-            -v "/tmp:/data" \
-            -v "$(pwd):/output" \
+            -v "$(pwd):/data" \
             gosom/google-maps-scraper \
             -input "/data/${QUERY_FILE}" \
-            -results "/output/${OUTPUT_FILE}" \
+            -results "/data/${OUTPUT_FILE}" \
             -depth 3 \
             -c 1 \
             -exit-on-inactivity 10m \
