@@ -25,24 +25,26 @@ jobs:
       - name: Pull scraper image
         run: docker pull gosom/google-maps-scraper
       
+      - name: Prepare query file
+        run: |
+          QUERY_FILE="${{ github.event.inputs.query_file }}"
+          # Copy query file to /tmp where docker can easily access it
+          cp "queries/${QUERY_FILE}" "/tmp/${QUERY_FILE}"
+          ls -la "/tmp/${QUERY_FILE}"
+      
       - name: Run scraper on test queries
         run: |
           QUERY_FILE="${{ github.event.inputs.query_file }}"
           TIMESTAMP=$(date +%Y%m%d_%H%M%S)
           OUTPUT_FILE="test_results_${TIMESTAMP}.csv"
           
-          # Use runner.workspace directly (GitHub sets this to the checkout directory)
-          REPO_ROOT="${{ runner.workspace }}"
-          
-          echo "Repo root: $REPO_ROOT"
-          echo "Query file: $REPO_ROOT/queries/${QUERY_FILE}"
-          ls -la "$REPO_ROOT/queries/${QUERY_FILE}"
-          
+          # Use /tmp for query file, current dir for output
           docker run --rm \
-            -v "${REPO_ROOT}:/data" \
+            -v "/tmp:/data" \
+            -v "$(pwd):/output" \
             gosom/google-maps-scraper \
-            -input "/data/queries/${QUERY_FILE}" \
-            -results "/data/${OUTPUT_FILE}" \
+            -input "/data/${QUERY_FILE}" \
+            -results "/output/${OUTPUT_FILE}" \
             -depth 3 \
             -c 1 \
             -exit-on-inactivity 10m \
