@@ -29,14 +29,12 @@ jobs:
           TIMESTAMP=$(date +%Y%m%d_%H%M%S)
           OUTPUT_FILE="test_results_${TIMESTAMP}.csv"
           
-          # Generate test queries inline (EXACTLY like original workflow)
-          cat > test_queries.txt << 'EOF'
-beauty salon Lagos
-restaurant Lagos
-plumber Lagos
-hospital Lagos
-real estate agent Lagos
-EOF
+          # Generate test queries inline using echo commands
+          echo "beauty salon Lagos" > test_queries.txt
+          echo "restaurant Lagos" >> test_queries.txt
+          echo "plumber Lagos" >> test_queries.txt
+          echo "hospital Lagos" >> test_queries.txt
+          echo "real estate agent Lagos" >> test_queries.txt
           
           docker run --rm \
             -v "${{ runner.workspace }}:/data" \
