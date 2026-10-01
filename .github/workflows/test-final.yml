@@ -24,45 +24,45 @@ jobs:
       - name: Pull scraper image
         run: docker pull gosom/google-maps-scraper
       
-      - name: Run scraper on test queries (single step like original workflow)
+      - name: Run scraper on test queries (docker cp, no bind mount)
         run: |
+          set -e
           TIMESTAMP=$(date +%Y%m%d_%H%M%S)
           OUTPUT_FILE="test_results_${TIMESTAMP}.csv"
-          
+
           # Generate test queries inline using echo commands
           echo "beauty salon Lagos" > test_queries.txt
           echo "restaurant Lagos" >> test_queries.txt
           echo "plumber Lagos" >> test_queries.txt
           echo "hospital Lagos" >> test_queries.txt
           echo "real estate agent Lagos" >> test_queries.txt
-          
-          docker run --rm \
-            -v "${{ runner.workspace }}:/data" \
-            gosom/google-maps-scraper \
+
+          # Runner itself lives in a container (DooD), so bind-mounting
+          # runner.workspace into a sibling container resolves on the HOST
+          # filesystem, not this container's. Use docker create + docker cp
+          # instead, which works regardless of host/container path mismatch.
+          CID=$(docker create gosom/google-maps-scraper \
             -input "/data/test_queries.txt" \
             -results "/data/${OUTPUT_FILE}" \
             -depth 3 \
             -c 1 \
             -exit-on-inactivity 10m \
-            -zoom 16
-      
+            -zoom 16)
+
+          docker cp test_queries.txt "${CID}:/data/test_queries.txt"
+          docker start -a "$CID"
+          docker cp "${CID}:/data/${OUTPUT_FILE}" "./${OUTPUT_FILE}"
+          docker rm "$CID" > /dev/null
+
+          echo "OUTPUT_FILE=${OUTPUT_FILE}" >> "$GITHUB_ENV"
+
       - name: Show results preview
         run: |
-          OUTPUT_FILE=$(ls test_results_*.csv | head -1)
           echo "=== Results preview ==="
           head -5 "$OUTPUT_FILE"
           echo "=== Row count ==="
           wc -l "$OUTPUT_FILE"
-      
-      - name: Copy to new_intake folder
-        run: |
-          OUTPUT_FILE=$(ls test_results_*.csv | head -1)
-          DEST="/Users/MAC/Desktop/UNIFIED_LEADS/Forge Growth Outreach/new_intake/${OUTPUT_FILE}"
-          mkdir -p "/Users/MAC/Desktop/UNIFIED_LEADS/Forge Growth Outreach/new_intake"
-          cp "$OUTPUT_FILE" "$DEST"
-          echo "Copied to $DEST"
-          ls -la "/Users/MAC/Desktop/UNIFIED_LEADS/Forge Growth Outreach/new_intake/"
-      
+
       - name: Upload results artifact
         uses: actions/upload-artifact@v4
         with:
