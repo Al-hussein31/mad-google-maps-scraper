@@ -18,9 +18,6 @@ jobs:
     
     steps:
       - uses: actions/checkout@v4
-        with:
-          path: .
-          sparse-checkout: false
       
       - name: Setup Docker
         uses: docker/setup-buildx-action@v3
@@ -28,25 +25,36 @@ jobs:
       - name: Pull scraper image
         run: docker pull gosom/google-maps-scraper
       
-      - name: Create test queries in /tmp
-        run: |
-          echo "beauty salon Lagos" > /tmp/test_queries.txt
-          echo "restaurant Lagos" >> /tmp/test_queries.txt
-          echo "plumber Lagos" >> /tmp/test_queries.txt
-          echo "hospital Lagos" >> /tmp/test_queries.txt
-          echo "real estate agent Lagos" >> /tmp/test_queries.txt
-      
-      - name: Run scraper on test queries
+      - name: Run scraper on test queries (single step like original)
         run: |
           TIMESTAMP=$(date +%Y%m%d_%H%M%S)
           OUTPUT_FILE="test_results_${TIMESTAMP}.csv"
           
+          # Generate test queries inline (EXACTLY like original workflow)
+          python3 << 'PYEOF'
+import os
+
+queries = [
+    "beauty salon Lagos",
+    "restaurant Lagos", 
+    "plumber Lagos",
+    "hospital Lagos",
+    "real estate agent Lagos"
+]
+
+# Write to current working directory
+with open("test_queries.txt", "w") as f:
+    for q in queries:
+        f.write(q + "\n")
+
+print(f"Generated {len(queries)} test queries")
+PYEOF
+          
           docker run --rm \
-            -v "/tmp:/data" \
-            -v "$(pwd):/output" \
+            -v "$(pwd):/data" \
             gosom/google-maps-scraper \
             -input "/data/test_queries.txt" \
-            -results "/output/${OUTPUT_FILE}" \
+            -results "/data/${OUTPUT_FILE}" \
             -depth 3 \
             -c 1 \
             -exit-on-inactivity 10m \
