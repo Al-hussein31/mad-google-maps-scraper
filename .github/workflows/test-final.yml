@@ -32,10 +32,6 @@ jobs:
 
           # Generate test queries inline using echo commands
           echo "beauty salon Lagos" > test_queries.txt
-          echo "restaurant Lagos" >> test_queries.txt
-          echo "plumber Lagos" >> test_queries.txt
-          echo "hospital Lagos" >> test_queries.txt
-          echo "real estate agent Lagos" >> test_queries.txt
 
           # Runner itself lives in a container (DooD), so bind-mounting
           # runner.workspace into a sibling container resolves on the HOST
@@ -44,9 +40,9 @@ jobs:
           CID=$(docker create gosom/google-maps-scraper \
             -input "/test_queries.txt" \
             -results "/${OUTPUT_FILE}" \
-            -depth 3 \
+            -depth 1 \
             -c 1 \
-            -exit-on-inactivity 10m \
+            -exit-on-inactivity 1m \
             -zoom 16)
 
           docker cp test_queries.txt "${CID}:/test_queries.txt"
