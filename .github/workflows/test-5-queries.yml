@@ -2,11 +2,6 @@ name: Test 5 Queries - Self-Hosted Runners
 
 on:
   workflow_dispatch:
-    inputs:
-      query_file:
-        description: 'Query file to use (in queries/ folder)'
-        required: true
-        default: 'test_5_queries.txt'
 
 jobs:
   test-scrape:
