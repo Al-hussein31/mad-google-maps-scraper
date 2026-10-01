@@ -1,0 +1,83 @@
+name: Test Scrape V2
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-scrape:
+    runs-on: [self-hosted, maps-scraper]
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: .
+          sparse-checkout: false
+      
+      - name: Setup Docker
+        uses: docker/setup-buildx-action@v3
+      
+      - name: Pull scraper image
+        run: docker pull gosom/google-maps-scraper
+      
+      - name: Run scraper on test queries
+        run: |
+          TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+          OUTPUT_FILE="test_results_${TIMESTAMP}.csv"
+          
+          # Generate test queries inline (like the original workflow)
+          python3 << 'PYEOF'
+import os
+
+queries = [
+    "beauty salon Lagos",
+    "restaurant Lagos", 
+    "plumber Lagos",
+    "hospital Lagos",
+    "real estate agent Lagos"
+]
+
+# Write to current working directory (which is the nested checkout dir)
+with open("test_queries.txt", "w") as f:
+    for q in queries:
+        f.write(q + "\n")
+
+print(f"Generated {len(queries)} test queries")
+PYEOF
+          
+          docker run --rm \
+            -v "$(pwd):/data" \
+            gosom/google-maps-scraper \
+            -input "/data/test_queries.txt" \
+            -results "/data/${OUTPUT_FILE}" \
+            -depth 3 \
+            -c 1 \
+            -exit-on-inactivity 10m \
+            -zoom 16
+      
+      - name: Show results preview
+        run: |
+          OUTPUT_FILE=$(ls test_results_*.csv | head -1)
+          echo "=== Results preview ==="
+          head -5 "$OUTPUT_FILE"
+          echo "=== Row count ==="
+          wc -l "$OUTPUT_FILE"
+      
+      - name: Copy to new_intake folder
+        run: |
+          OUTPUT_FILE=$(ls test_results_*.csv | head -1)
+          DEST="/Users/MAC/Desktop/UNIFIED_LEADS/Forge Growth Outreach/new_intake/${OUTPUT_FILE}"
+          mkdir -p "/Users/MAC/Desktop/UNIFIED_LEADS/Forge Growth Outreach/new_intake"
+          cp "$OUTPUT_FILE" "$DEST"
+          echo "Copied to $DEST"
+          ls -la "/Users/MAC/Desktop/UNIFIED_LEADS/Forge Growth Outreach/new_intake/"
+      
+      - name: Upload results artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-5-queries-results
+          path: test_results_*.csv
+          retention-days: 7
