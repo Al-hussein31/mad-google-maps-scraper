@@ -31,11 +31,8 @@ jobs:
           TIMESTAMP=$(date +%Y%m%d_%H%M%S)
           OUTPUT_FILE="test_results_${TIMESTAMP}.csv"
           
-          # Find the actual repo root (handles nested checkout)
-          REPO_ROOT=$(find /_work -name "queries" -type d 2>/dev/null | head -1 | sed 's|/queries||')
-          if [ -z "$REPO_ROOT" ]; then
-            REPO_ROOT="/_work/oci-a1-docker-01/mad-google-maps-scraper"
-          fi
+          # Use runner.workspace which is the checkout directory
+          REPO_ROOT="${{ runner.workspace }}"
           
           echo "Repo root: $REPO_ROOT"
           echo "Query file: $REPO_ROOT/queries/${QUERY_FILE}"
