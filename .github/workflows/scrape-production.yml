@@ -4,29 +4,39 @@ on:
   workflow_dispatch:
     inputs:
       confirm:
-        description: 'Type YES to run full production scrape'
+        description: 'Type YES to run production scrape'
         required: true
+      sectors:
+        description: 'Comma-separated sectors to scrape, e.g. 09_events,10_logistics (empty = all 10)'
+        required: false
+        default: ''
 
 jobs:
-  scrape:
+  plan:
     if: github.event.inputs.confirm == 'YES'
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set.outputs.matrix }}
+    steps:
+      - id: set
+        run: |
+          ALL='["01_beauty_personal_care","02_food_hospitality","03_fashion_retail","04_auto_services","05_home_services","06_health_medical","07_real_estate","08_professional_services","09_events","10_logistics"]'
+          INPUT="${{ github.event.inputs.sectors }}"
+          if [ -n "$INPUT" ]; then
+            SELECTED=$(printf '%s' "$INPUT" | tr -d ' ' | tr ',' '\n' | jq -R . | jq -s -c .)
+          else
+            SELECTED="$ALL"
+          fi
+          echo "matrix={\"sector\":$SELECTED}" >> "$GITHUB_OUTPUT"
+
+  scrape:
+    needs: plan
     runs-on: [self-hosted, maps-scraper]
     timeout-minutes: 4320
     strategy:
       fail-fast: false
       max-parallel: 4
-      matrix:
-        sector:
-          - 01_beauty_personal_care
-          - 02_food_hospitality
-          - 03_fashion_retail
-          - 04_auto_services
-          - 05_home_services
-          - 06_health_medical
-          - 07_real_estate
-          - 08_professional_services
-          - 09_events
-          - 10_logistics
+      matrix: ${{ fromJson(needs.plan.outputs.matrix) }}
 
     steps:
       - uses: actions/checkout@v4
