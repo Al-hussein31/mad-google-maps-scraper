@@ -1,0 +1,30 @@
+electrician Glasgow
+plumber Glasgow
+carpenter Glasgow
+electrician Edinburgh
+plumber Edinburgh
+carpenter Edinburgh
+electrician Leeds
+plumber Leeds
+carpenter Leeds
+electrician Liverpool
+plumber Liverpool
+carpenter Liverpool
+electrician Bristol
+plumber Bristol
+carpenter Bristol
+electrician Nottingham
+plumber Nottingham
+carpenter Nottingham
+electrician Leicester
+plumber Leicester
+carpenter Leicester
+electrician Newcastle upon Tyne
+plumber Newcastle upon Tyne
+carpenter Newcastle upon Tyne
+electrician Cardiff
+plumber Cardiff
+carpenter Cardiff
+electrician Belfast
+plumber Belfast
+carpenter Belfast

@@ -10,6 +10,10 @@ on:
         description: 'Comma-separated sectors to scrape, e.g. 09_events,10_logistics (empty = all 10)'
         required: false
         default: ''
+      extract_emails:
+        description: 'Type YES to also extract emails from business websites (much slower)'
+        required: false
+        default: 'NO'
 
 jobs:
   plan:
@@ -60,6 +64,11 @@ jobs:
           # filesystem, not this container's. Use docker create + docker cp
           # instead, which works regardless of host/container path mismatch.
           # Memory capped: box also runs other live production services.
+          # -email visits each business website to harvest emails (slow) — opt-in.
+          EMAIL_FLAG=""
+          if [ "${{ github.event.inputs.extract_emails }}" = "YES" ]; then
+            EMAIL_FLAG="-email"
+          fi
           CID=$(docker create \
             --memory="1500m" \
             --memory-swap="2g" \
@@ -69,7 +78,7 @@ jobs:
             -depth 3 \
             -c 1 \
             -exit-on-inactivity 10m \
-            -zoom 14)
+            -zoom 14 $EMAIL_FLAG)
 
           docker cp "${QUERY_FILE}" "${CID}:/queries.txt"
           docker start -a "$CID"
